@@ -14,4 +14,10 @@
     <string name="content3">A layout composable that places its children in a horizontal sequence.</string>
     <string name="title4">Column composable</string>
     <string name="content4">A layout composable that places its children in a vertical sequence.</string>
+
+    <string name="fullName">Enver Isayev</string>
+    <string name="businessTitle">Android/Back end Developer</string>
+    <string name="telNum">+994 70 871 45 96</string>
+    <string name="linkedin">\@acupoflie</string>
+    <string name="email">ishyeen@gmail.com</string>
 </resources>

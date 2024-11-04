@@ -7,13 +7,21 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Call
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Share
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,6 +31,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -37,7 +46,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             PracticeAppJetpactComposeTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    QuadrantArticle()
+                    BusinessCardArticle()
                 }
             }
         }
@@ -46,8 +55,100 @@ class MainActivity : ComponentActivity() {
 
 
 
+@Composable
+fun BusinessCardArticle() {
+    Box(
+        modifier = Modifier
+            .background(color = Color(0xFFC5E0C6))
+            .fillMaxSize()
+    ) {
+        Column (
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 210.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Image(
+                painter = painterResource(R.drawable.android_logo),
+                contentDescription = null,
+                Modifier
+                    .height(120.dp)
+                    .background(color = Color(0xFF182C35))
+                    .padding(12.dp)
+            )
+            Text(
+                text = stringResource(R.string.fullName),
+                fontSize = 44.sp,
+                fontFamily = FontFamily.SansSerif,
+                color = Color.Black
+            )
+            Text(
+                text = stringResource(R.string.businessTitle),
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFF44725A)
+            )
+            Spacer(modifier = Modifier.weight(1f))
+        }
+        Column (
+            modifier = Modifier
+                .width(200.dp)
+                .align(alignment = Alignment.BottomCenter)
+                .padding(bottom = 100.dp),
+            horizontalAlignment = Alignment.Start,
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Row (Modifier.padding(5.dp)) {
+                Icon(
+                    imageVector = Icons.Default.Call,
+                    contentDescription = null,
+                    Modifier.padding(end = 10.dp),
+                    tint = Color.Black
+                )
+                Text(
+                    text = stringResource(R.string.telNum),
+                    color = Color.Black
+                )
+            }
+            Row (Modifier.padding(5.dp)) {
+                Icon(
+                    imageVector = Icons.Default.Share,
+                    contentDescription = null,
+                    Modifier.padding(end = 10.dp),
+                    tint = Color.Black
+                )
+                Text(
+                    text = stringResource(R.string.linkedin),
+                    color = Color.Black
+                )
+            }
+            Row (Modifier.padding(5.dp)) {
+                Icon(
+                    imageVector = Icons.Default.Email,
+                    contentDescription = null,
+                    Modifier.padding(end = 10.dp),
+                    tint = Color.Black
+                )
+                Text(
+                    text = stringResource(R.string.email),
+                    color = Color.Black
+                )
+            }
+        }
+    }
+}
 
 
+
+@Preview(showBackground = true)
+@Composable
+fun ArticlePreview() {
+    PracticeAppJetpactComposeTheme {
+        BusinessCardArticle()
+    }
+}
+
+// Quadrant Article
 @Composable
 fun QuadrantArticle() {
     Column(Modifier.fillMaxWidth()) {
@@ -111,15 +212,6 @@ fun QuadrantCard(
             text = content,
             textAlign = TextAlign.Justify
         )
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun ArticlePreview() {
-    PracticeAppJetpactComposeTheme {
-        QuadrantArticle()
     }
 }
 
